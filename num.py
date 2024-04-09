@@ -311,4 +311,63 @@ flatten and ravel
 insert and delete array
 """
 
+var = np.array([[2,1,7],[5,6,9]])
 
+# x =np.insert(var, 0, 40)
+
+# print(x)
+
+# x =np.insert(var, (1,2), 40)
+
+# print(x)
+
+# x =np.insert(var, 1, 40, axis=1)
+
+# print(x)
+
+
+# x =np.insert(var, 1, [40,10], axis=1)
+
+# print(x)
+
+# x =np.delete(var,1)
+
+# print(x)
+
+
+"""
+matrix in numphy
+"""
+var = np.matrix([[2,1,7],[5,6,9]])
+
+# print(type(var))
+
+var1 = np.matrix([[1,2],[3,4]])
+
+var2 = np.matrix([[1,1,2],[3,4,4]])
+var3 = np.matrix([[1,2],[3,4]])
+# print(type(var1))
+"normal multiply of array/matrix"
+print(var1*var2)
+"dot mulitply of matrix" 
+print(var1.dot(var2))
+print()
+print(np.transpose(var2))
+print()
+print(np.swapaxes(var2,0,1))
+print()
+"inverse of matrix"
+print(np.linalg.inv(var3))
+print()
+"power of matrix"
+print(np.linalg.matrix_power(var3,2))
+print()
+"indentity matrix"
+print(np.linalg.matrix_power(var3,0 ))
+print(np.linalg.matrix_power(var3,2))
+"inverse of power"
+print()
+print(np.linalg.matrix_power(var3,-2 ))
+"deteminate of matrix"
+print()
+print(np.linalg.det(var3))
