@@ -59,7 +59,7 @@ writing the csv file
 will produce the csv file in the current folder, index=false will remove the index from the file
 """
 
-dis={1:[1,5,3,6,9,], 2:[4,5,6,9,5], "d":[4,5,69,8,5]}
+dis={"a":[1,5,3,6,9,], "b":[4,5,6,9,5], "d":[4,5,69,8,5]}
 
 x= pd.DataFrame(dis)
 # x.to_csv("csv1.csv",index=False)
@@ -161,3 +161,66 @@ handling the missing data using dropna and fillna
 "replacing the data in orignal"
 # x=csv_file.interpolate(limit_direction="forward", limit=3, inplace=True)
 # print(csv_file)
+
+"""
+Merge and Concat DataFrames using pandas, but must have one column common its because it will merge all data else it will merge that data which is common
+"""
+dis1=pd.DataFrame({"a":[11,51,31,6,9,], "b":[41,51,61,19,5], "d":[4,5,69,8,5]})
+dis2=pd.DataFrame(dis)
+# car=pd.merge(dis1,dis2,on="d" )
+# print(car)
+'print the missing values'
+dis1=pd.DataFrame({"a":[11,51,31,6,9,], "b":[41,51,61,19,5], "d":[4,5,69,8,5]})
+dis2=pd.DataFrame({"a":[11,51,3,6,9,], "b":[4,5,6,9,5], "d":[4,5,69,8,5]})
+'will show only those which are common on all'
+# car=pd.merge(dis1,dis2, how="inner" )
+'will show all data'
+# car=pd.merge(dis1,dis2, how="outer", indicator=True )
+'you can change the heading name '
+# car=pd.merge(dis1,dis2, left_index=True, right_index=True, suffixes=['name','id'] )
+# print(car)
+
+
+"concatination of dataframes"
+a=pd.Series({"a":[1,2,3,4],"b":[4,8,5,6]})
+b=pd.Series({"a":[1,5,4,6],"b":[9,8,7,6]})
+# print(pd.concat([a,b],axis=1))
+# print(pd.concat([a,b],axis=0  ))
+
+"""
+Pandas GroupBy - Guide to Grouping Data
+"""
+
+d=pd.DataFrame({"Name":["a","b","c","e", "a","b","e"], "Hindi":[50,50,52,60,50,50,90], "English":[70,80,90,55,70,80,90]}) 
+a=d.groupby("Name")
+# for x,y in a:
+#   print(x)
+#   print(y)
+'get the data of particular group'
+# print(a.get_group("a"))
+# print(a.max())
+# print(a.mean())
+"convert the data into list"
+# print(list(a))
+
+"""
+Join and Append DataFrames
+"""
+s=pd.DataFrame({"a":[1,2,3,4],"b":[4,8,5,6]})
+d=pd.DataFrame({"c":[1,5,4,6],"e":[9,8,6,5]})
+# print(s.join(d, how="left"))
+
+
+"Pivot Table and Melt Function-------------------"
+d=pd.DataFrame({"days":[1,1,2,2,1,1,2],
+                "Name":["a","b","b","a", "a","b","b"], 
+                "Hindi":[50,50,52,60,50,50,90], 
+                "English":[70,80,90,55,70,80,90]}) 
+"providing id, it will treat that particular column as id and show its data"
+# print(pd.melt(d, id_vars=["Name"], var_name="Surya", value_name="sp"))
+
+"Pivot"
+# print(d.pivot(index="days", columns="Name"))
+# print(d.pivot_table(index="days", columns="Name", aggfunc="mean"))
+# print(d.pivot_table(index="days", columns="Name", aggfunc="mean" , margins=True))
+print(d.pivot_table(index="days", columns="Name", aggfunc="median" , margins=True))
