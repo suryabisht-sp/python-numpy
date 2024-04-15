@@ -65,7 +65,95 @@ l=[5,10,15,20,25,30,35,40,45,50,55,60,65]
 
 "Matplotlib Pie Chart / Plot"
 ex=[0.09,0.0,0.0,0.0,0.0]
+f=[5,6,4,8,9]
 x1=np.random.randint(10,60,(5))
 'explode will pop out the sector from the circle'
-plt.pie(x1,labels=x, explode=ex, autopct="%0.1f%%", radius=1, labeldistance=1.2)
-plt.show()
+# plt.pie(x1,labels=x, explode=ex, autopct="%0.1f%%", radius=1.2, labeldistance=1.2, startangle=0, textprops={"fontsize":9})
+# plt.pie(f,labels=x, radius=0.5,autopct="%0.1f%%")
+# plt.legend(loc=4)
+"for donut shape use below"
+# plt.pie([1], colors="white")
+# plt.show()
+"alternative we can use below method too"
+# c=plt.Circle(xy=(0,0),radius=1, facecolor="w")
+# plt.gca().add_artist(c)
+# plt.show()
+
+"""
+Stem plot 
+"""
+
+x=[1,2,3,4,5,6]
+y=[11,22,13,14,15,26]
+y1=[11,22,13,14,15,26]
+y2=[11,22,13,14,15,26]
+y3=[11,22,13,14,15,26]
+# plt.stem(x,y, linefmt=':', markerfmt="b*", basefmt="green", use_line_collection=False, orientation="horizontal")
+# plt.show()
+
+"""
+Box Vs Whisker Plot
+"""
+z=[x,y]
+
+# plt.boxplot(x, notch=True, vert=False, showmeans=True)
+# plt.boxplot(x, showmeans=True, boxprops=dict(color="red"), capprops=dict(color="y"), whiskerprops=dict(color="y"),flierprops=dict(markeredgecolor="b"))
+# plt.boxplot(x, showmeans=True, boxprops=dict(color="red"), capprops=dict(color="y"), whiskerprops=dict(color="y"),flierprops=dict(markeredgecolor="b"))
+# plt.boxplot(z, showmeans=True, boxprops=dict(color="red"), capprops=dict(color="y"), whiskerprops=dict(color="y"),flierprops=dict(markeredgecolor="b"))
+# plt.show()
+
+
+# plt.box(x)
+# plt.show()
+
+
+"""
+Area Vs Stack Plot
+"""
+# plt.stackplot(x,y,y1,y2,y3)
+# plt.show()
+"""
+step plot"""
+
+# plt.step(x,y, marker="o", mfc="g")
+# plt.title("Testing")
+# plt.xlabel("test1")
+# plt.ylabel("test1")
+# plt.grid()
+# plt.show()
+
+"""
+Fill_Between Plot and subplots
+"""
+
+x1=np.array([1,2,3,4,5,6])
+y11=np.array([11,22,13,14,15,26])
+
+# plt.subplot(2,2,1)
+# plt.plot(x1,y11)
+# plt.subplot(2,2,2)
+# plt.pie(x)
+# plt.subplot(2,2,3)
+# plt.hist(x)
+# plt.subplot(2,2,4)
+# plt.bar(y11,x1)
+# plt.fill_between(x,y)
+# plt.fill_between(x=[2,3], y1=11, y2=13, color="red")
+
+# plt.show()
+
+"""
+savefig in matplotlib"""
+
+# plt.bar(x1,y11)
+# plt.savefig("tesddtin", dpi=2000)
+# plt.show()
+
+
+"""
+Text in Matplotlib Plots 
+"""
+# plt.bar(x1,y11)
+# plt.text(5,5,"hello")
+# plt.annotate("this", xy=(4,4), arrowprops=dict(facecolor="black"),xytext=(5,10))
+# plt.show()
